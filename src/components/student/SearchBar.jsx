@@ -1,9 +1,20 @@
 import "react";
 import { assets } from "../../assets/assets";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SearchBar = () => {
+  const navigate = useNavigate();
+  const [input, setInput] = useState(data ? data : "");
+
+  const onSearchHandler = (e) => {
+    e.preventDefault();
+    navigate("/course-list" + input);
+  };
+
   return (
     <form
+      onSubmit={onSearchHandler()}
       action=""
       className="max-w-xl w-full md:h-14 h-12 flex items-center bg-white border border-gray-500/20 rounded"
     >
